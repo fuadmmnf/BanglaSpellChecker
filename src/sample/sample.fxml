@@ -1,0 +1,29 @@
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.TextArea?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+
+<?import javafx.scene.control.Button?>
+<BorderPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml"  fx:id="borderPane" >
+    <top>
+        <Button text="Correct" onAction="#putCorrectSpelling"/>
+    </top>
+    <left>
+        <VBox>
+            <ListView fx:id="suggestions" onKeyPressed="#putSuggestion"/>
+            <!--<Button fx:id="button" text="Convert" onAction="#convertLanguage"/>-->
+            <TextArea fx:id="engToBan"  onKeyReleased="#detectKeyboard" onKeyPressed="#detectKeyboard" onMouseMoved="#detectMouse" />
+        </VBox>
+    </left>
+    <center>
+    <TextArea fx:id="inputSentence" VBox.vgrow="ALWAYS" wrapText="true"  onKeyPressed="#wordSuggestions" onKeyReleased="#dynamicSuggestions"/>
+    </center>
+    <bottom>
+        <TextArea fx:id="wrongText"/>
+    </bottom>
+</BorderPane>
